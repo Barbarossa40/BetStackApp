@@ -12,7 +12,7 @@ namespace BetStackApp.Domain.Entities
         public Guid SportId { get; set; }
         public string Name { get; set; }
 
-        public ICollection<Bet> Bets { get; set; }
-        public ICollection<League> Leagues { get; set; }
+        public ICollection<Bet>? Bets { get; set; }
+        public ICollection<League>? Leagues { get; set; }
     }
 }

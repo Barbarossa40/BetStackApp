@@ -12,13 +12,13 @@ namespace BetStackApp.Application.Features.Bets.Queries.GetBetsList
 {
     public class GetBetsListQueryHandler : IRequestHandler<GetBetsListQuery, List<BetsListVM>>
     {
-        private readonly IAsyncRepository<Bet> _betRepository;
+        private readonly IBetRepository _betRepository;
         private readonly IMapper _mapper;
         private readonly IAsyncRepository<Sport> _sportRepository;  // bring the actaul repo if you want to use repo specific methods
         private readonly IAsyncRepository<League> _leagueRepository;
         private readonly IAsyncRepository<Competitor> _competitorRepository;
 
-        public GetBetsListQueryHandler(IMapper mapper, IAsyncRepository<Bet> betRepository, IAsyncRepository<Sport> sportRepository, IAsyncRepository<League> leagueRepository, IAsyncRepository<Competitor> competitorRepository)
+        public GetBetsListQueryHandler(IMapper mapper, IBetRepository betRepository, IAsyncRepository<Sport> sportRepository, IAsyncRepository<League> leagueRepository, IAsyncRepository<Competitor> competitorRepository)
         {
             _mapper = mapper;
             _betRepository = betRepository;
@@ -28,7 +28,7 @@ namespace BetStackApp.Application.Features.Bets.Queries.GetBetsList
         }
         public async Task<List<BetsListVM>> Handle(GetBetsListQuery request, CancellationToken cancellationToken)
         {
-            var allBets = (await _betRepository.ListAllAsync()).OrderByDescending(x => x.DateOfBetCompletion); 
+            var allBets = (await _betRepository.GetAllBetsWithDetailsAsync()).OrderByDescending(x => x.DateOfBetCompletion); 
             return _mapper.Map<List<BetsListVM>>(allBets);
 
 

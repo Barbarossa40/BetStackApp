@@ -12,11 +12,11 @@ namespace BetStackApp.Domain.Entities
     {
         public Guid BetId { get; set; }
 
-        public Bet Bet { get; set; }
+        public Bet? Bet { get; set; }
 
         public Guid CompetitorId { get; set; }
 
-        public Competitor Competitor { get; set; }
+        public Competitor? Competitor { get; set; }
 
         public bool BetOn { get; set; }
     }

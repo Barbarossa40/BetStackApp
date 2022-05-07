@@ -3,19 +3,16 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using BetStackApp.Domain.Entities;
+using MediatR;
 
-
-namespace BetStackApp.Application.Features.Competitors.Queries.GetCompetitorsList
+namespace BetStackApp.Application.Features.Competitors.Commands.CreateCompetitor
 {
-    public class CompetitorsListVM
+    public class CreateCompetitorCommand: IRequest<CreateCompetitorCommandResponse>
     {
-        public Guid CompetitorId { get; set; }
         public string Name { get; set; }
 
         public string Nationality { get; set; }
 
-
-
+        public string Notes { get; set; }
     }
 }

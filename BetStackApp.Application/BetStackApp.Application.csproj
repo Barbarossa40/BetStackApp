@@ -9,6 +9,8 @@
   <ItemGroup>
     <PackageReference Include="AutoMapper" Version="11.0.1" />
     <PackageReference Include="AutoMapper.Extensions.Microsoft.DependencyInjection" Version="11.0.0" />
+    <PackageReference Include="FluentValidation" Version="10.4.0" />
+    <PackageReference Include="FluentValidation.DependencyInjectionExtensions" Version="10.4.0" />
     <PackageReference Include="MediatR.Extensions.Microsoft.DependencyInjection" Version="10.0.1" />
   </ItemGroup>
 
@@ -17,9 +19,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Features\Bets\Commands\DeleteBet\" />
-    <Folder Include="Features\Bets\Commands\UpdateBet\" />
-    <Folder Include="Features\Competitors\Commands\CreateCompetitor\" />
     <Folder Include="Features\Competitors\Commands\DeleteCompetitor\" />
     <Folder Include="Features\Competitors\Commands\UpdateCompetitor\" />
     <Folder Include="Features\Leagues\Commands\CreateLeague\" />

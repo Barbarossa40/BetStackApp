@@ -15,9 +15,11 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Infrastructure", "Infrastru
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "UI", "UI", "{C7BA971E-CB3F-44BA-835B-FEF7EAFA588C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BetStackApp.Domain", "BetStackApp.Domain\BetStackApp.Domain.csproj", "{9732BDB8-74D0-4601-B9E9-E8B5ADAF52AF}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BetStackApp.Domain", "BetStackApp.Domain\BetStackApp.Domain.csproj", "{9732BDB8-74D0-4601-B9E9-E8B5ADAF52AF}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BetStackApp.Application", "BetStackApp.Application\BetStackApp.Application.csproj", "{64F5667A-1DFD-4745-A832-B89B2B8FE469}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BetStackApp.Application", "BetStackApp.Application\BetStackApp.Application.csproj", "{64F5667A-1DFD-4745-A832-B89B2B8FE469}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BetStackApp.Persistence", "BetStackApp.Persistence\BetStackApp.Persistence.csproj", "{12E966D9-ED92-4BC9-8157-5AC02896C56F}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -33,6 +35,10 @@ Global
 		{64F5667A-1DFD-4745-A832-B89B2B8FE469}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{64F5667A-1DFD-4745-A832-B89B2B8FE469}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{64F5667A-1DFD-4745-A832-B89B2B8FE469}.Release|Any CPU.Build.0 = Release|Any CPU
+		{12E966D9-ED92-4BC9-8157-5AC02896C56F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{12E966D9-ED92-4BC9-8157-5AC02896C56F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{12E966D9-ED92-4BC9-8157-5AC02896C56F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{12E966D9-ED92-4BC9-8157-5AC02896C56F}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -44,6 +50,7 @@ Global
 		{C7BA971E-CB3F-44BA-835B-FEF7EAFA588C} = {C5053EB2-856C-4A62-93EC-E059DBF062C4}
 		{9732BDB8-74D0-4601-B9E9-E8B5ADAF52AF} = {088C027B-F74A-455D-8F59-0B290B67F8B1}
 		{64F5667A-1DFD-4745-A832-B89B2B8FE469} = {088C027B-F74A-455D-8F59-0B290B67F8B1}
+		{12E966D9-ED92-4BC9-8157-5AC02896C56F} = {EE0F8271-5734-4EAC-9ADC-ABA62F1DEB5B}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {F88FA312-FCA5-470D-9F0A-428E0BF48489}

@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using BetStackApp.Application.Features.Bets.dtos;
+using BetStackApp.Application.Features.Competitors.Queries.GetCompetitorDetail.GetCompetitorDetailDtos;
 
 namespace BetStackApp.Application.Features.Competitors.Queries.GetCompetitorDetail
 {
@@ -11,11 +11,11 @@ namespace BetStackApp.Application.Features.Competitors.Queries.GetCompetitorDeta
     {
         public Guid CompetitorId { get; set; }
         public string Name { get; set; }
+        public string Nationality { get; set; }
 
-        public SportDto Sport { get; set; }
+        public string Notes { get; set; }
 
-        public LeagueDto League { get; set; }  
-        public ICollection<CompetitorBetDto> BetCompetitor { get; set; }
+        public ICollection<GetCompetitorDetailBetDto>? CompetitorBets { get; set; }
 
     }
 }

@@ -3,13 +3,11 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using BetStackApp.Application.Features.Bets.dtos;
 
-namespace BetStackApp.Application.Features.Competitors.Queries.GetCompetitorDetail
+namespace BetStackApp.Application.Features.Competitors.Queries.GetCompetitorDetail.GetCompetitorDetailDtos
 {
-    public class CompetitorBetDto
+    public class GetCompetitorDetailBetDto
     {
-
         public Guid BetId { get; set; }
 
         public bool WonBet { get; set; }
@@ -19,7 +17,6 @@ namespace BetStackApp.Application.Features.Competitors.Queries.GetCompetitorDeta
 
         public bool IsParlay { get; set; }
 
-        public ICollection<BetCompetitorDto> BetCompetitors { get; set; }
+        public ICollection<GetCompetitorDetailCompetitorsDto>? BetCompetitors { get; set; }
     }
 }
-   

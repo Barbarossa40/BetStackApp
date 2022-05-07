@@ -7,7 +7,6 @@ using BetStackApp.Application.Contracts.Persistence;
 using AutoMapper;
 using BetStackApp.Domain.Entities;
 using MediatR;
-using BetStackApp.Application.Features.Bets.dtos;
 using BetStackApp.Application.Features.Competitors.Queries.GetCompetitorDetail;
 
 namespace BetStackApp.Application.Features.Sports.Queries.GetSportDetails
@@ -35,11 +34,9 @@ namespace BetStackApp.Application.Features.Sports.Queries.GetSportDetails
             var sport = (await _sportRepository.GetByIdAsync(request.SportId));
             var sportDto = _mapper.Map<SportDetailsVM>(sport);
 
-            var league = await _leagueRepository.GetListByIdAsync(sport.SportId);
-            sportDto.Leagues =_mapper.Map<List<LeagueDto>>(league);
+            var league = await _leagueRepository.GetListByIdAsync(sport.SportId); // need method in league repo to get league by sportID
+            sportDto.Leagues =_mapper.Map<List<GetSportDetailsLeagueDto>>(league);
 
-            var bets = (await _sportRepository.GetListByIdAsync(sport.SportId)); //need method that takes in sport Id and returns all bets
-            sportDto.Bets = _mapper.Map<List<CompetitorBetDto>>(bets);
 
             return sportDto;
         }

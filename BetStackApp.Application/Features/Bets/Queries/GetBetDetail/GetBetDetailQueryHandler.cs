@@ -7,7 +7,7 @@ using MediatR;
 using BetStackApp.Application.Contracts.Persistence;
 using BetStackApp.Domain.Entities;
 using AutoMapper;
-using BetStackApp.Application.Features.Bets.dtos;
+using BetStackApp.Application.Features.Bets.Queries.GetBetDetailDtos;
 
 namespace BetStackApp.Application.Features.Bets.Queries.GetBetDetail
 {
@@ -35,13 +35,13 @@ namespace BetStackApp.Application.Features.Bets.Queries.GetBetDetail
             var betDetailDto = _mapper.Map<BetDetailVM>(bet);
 
             var sport = await _sportRepository.GetByIdAsync(bet.Sport.SportId);
-            betDetailDto.Sport = _mapper.Map<SportDto>(sport);
+            betDetailDto.Sport = _mapper.Map<GetSportBetDto>(sport);
 
             var league = await _leagueRepository.GetByIdAsync(bet.League.LeagueId);
-            betDetailDto.League = _mapper.Map<LeagueDto>(league);
+            betDetailDto.League = _mapper.Map<GetLeagueBetDto>(league);
 
             var competitors = await _competitorRepository.GetListByIdAsync(bet.BetId);
-            betDetailDto.BetCompetitors = _mapper.Map<List<BetCompetitorDto>>(competitors);
+            betDetailDto.BetCompetitors = _mapper.Map<List<GetBetCompetitorDto>>(competitors);
 
 
             return betDetailDto;

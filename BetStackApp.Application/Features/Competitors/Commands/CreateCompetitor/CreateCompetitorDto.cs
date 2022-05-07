@@ -4,13 +4,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace BetStackApp.Application.Features.Bets.Commands.CreateBet.CreateBetDtos
+namespace BetStackApp.Application.Features.Competitors.Commands.CreateCompetitor
 {
-    public class CreatetBetCompetitorsDto
+    public class CreateCompetitorDto
     {
         public Guid CompetitorId { get; set; }
         public string Name { get; set; }
-
-        public bool BetOn { get; set; }
     }
 }

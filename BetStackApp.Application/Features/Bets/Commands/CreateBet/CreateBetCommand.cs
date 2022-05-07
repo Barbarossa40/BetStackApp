@@ -4,19 +4,16 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using MediatR;
-using BetStackApp.Application.Features.Bets.Commands.CreateBet.CreateBetDtos;
 
 namespace BetStackApp.Application.Features.Bets.Commands.CreateBet
 {
     public class CreateBetCommand : IRequest<Guid> //this will return ID of newly creatred bet
     {
-
-        public Guid BetId { get; set; }
         public Guid UserId { get; set; }
 
-        public CreateBetSportDto Sport { get; set; }
+        public Guid SportId { get; set; }
 
-        public CreateBetLeagueDto League { get; set; }
+        public Guid LeagueId { get; set; }
 
         public DateTime DatePlaced { get; set; }
 
@@ -37,6 +34,6 @@ namespace BetStackApp.Application.Features.Bets.Commands.CreateBet
 
         public bool IsParlay { get; set; }
 
-        public ICollection<CreatetBetCompetitorsDto> BetCompetitors { get; set; }
+        public ICollection<CreatetBetCompetitorsDto> BetCompetitors { get; set; } /// not sure how to transerfer competitor object or how to add who won
     }
 }

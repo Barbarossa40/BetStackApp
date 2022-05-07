@@ -4,12 +4,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace BetStackApp.Application.Features.Bets.Commands.CreateBet.CreateBetDtos
+namespace BetStackApp.Application.Features.Bets.Queries.GetBetDetailDtos
 {
-    public class CreateBetLeagueDto
+    public class GetSportBetDto
     {
-        public Guid LeagueId { get; set; }
+        public Guid SportId { get; set; }
         public string Name { get; set; }
-
     }
 }

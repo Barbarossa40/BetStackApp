@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using BetStackApp.Application.Features.Bets.dtos;
+using BetStackApp.Application.Features.Bets.Queries.GetBetDetailDtos;
 
 namespace BetStackApp.Application.Features.Bets.Queries.GetBetsList
 {
@@ -11,11 +11,13 @@ namespace BetStackApp.Application.Features.Bets.Queries.GetBetsList
     {
         public Guid BetId { get; set; }
 
-        public SportDto SportGroup { get; set; }
+        public Guid SportId { get; set; }
+        public GetSportBetDto? Sport { get; set; }
 
-        public LeagueDto League { get; set; }
+        public Guid LeagueId { get; set; }
+        public GetLeagueBetDto? League { get; set; }
 
-        public string BetEventName { get; set; }
+        public string? EventName { get; set; }
 
         public DateTime DateOfBetCompletion { get; set; }
 
@@ -24,7 +26,9 @@ namespace BetStackApp.Application.Features.Bets.Queries.GetBetsList
 
         public bool WonBet { get; set; }
 
-        public ICollection<BetCompetitorDto> BetCompetitors { get; set; }
+        public bool ParlayMember { get; set; }
+
+        public ICollection<GetBetCompetitorDto>? BetCompetitors { get; set; }
 
     }
 }
