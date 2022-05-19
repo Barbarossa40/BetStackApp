@@ -3,41 +3,32 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using BetStackApp.Application.Features.Bets.Queries.GetBetDetailDtos;
+using BetStackApp.Application.Features.Bets.Queries.GetBetDetail.GetBetDetailDtos;
 
 namespace BetStackApp.Application.Features.Bets.Queries.GetBetDetail
 {
-    public class BetDetailVM
+    public class BetDetailVm
     {
- 
+
         public Guid BetId { get; set; }
-        public Guid UserId { get; set; }
 
-        public Guid SportId { get; set; }
-        public GetSportBetDto? Sport { get; set; }
+        public MatchDto MatchBetOn { get; set; }
+        public DateOnly DatePlaced { get; set; }
 
-        public Guid LeagueId { get; set; }
-        public GetLeagueBetDto? League { get; set; }
+        public double Odds { get; set; }
 
-        public DateTime DatePlaced { get; set; }
+        public bool WinBet { get; set; }
 
-        public string? BetEventName { get; set; }
+        public CompetitorDto BetOn { get; set; }
 
-        public DateTime DateOfBetCompletion { get; set; }
-
-        public int Odds { get; set; }
+        public CompetitorDto BetAgainst { get; set; }
 
         public double WagerAmount { get; set; }
-        public double Payout { get; set; }
 
-        public bool WonBet { get; set; }
+        public double NetReturn { get; set; }
 
-        public bool EarlyCashOut { get; set; }
+        public bool IsParlayLeg { get; set; }
+        public bool IsComplete { get; set; }
 
-        public double EarlyCashoutAmount { get; set; }
-
-        public bool ParlayMember { get; set; }
-
-        public ICollection<GetBetCompetitorDto>? BetCompetitors { get; set; }
     }
 }

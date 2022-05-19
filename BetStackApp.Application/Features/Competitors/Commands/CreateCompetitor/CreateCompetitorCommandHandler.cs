@@ -13,14 +13,10 @@ namespace BetStackApp.Application.Features.Competitors.Commands.CreateCompetitor
     public  class CreateCompetitorCommandHandler : IRequestHandler<CreateCompetitorCommand, CreateCompetitorCommandResponse>
     {
         private readonly IMapper _mapper;
-        private readonly IAsyncRepository<Competitor> _competitorRepository;
-        //private readonly IAsyncRepository<Bet> _betRepository;
-        //private readonly IAsyncRepository<Sport> _sportRepository;
-        //private readonly IAsyncRepository<League> _leagueRepository;
-        //private readonly IAsyncRepository<BetCompetitor> _betCompetitorRepository;
+        private readonly ICompetitorRepository _competitorRepository;
+   
 
-
-        public CreateCompetitorCommandHandler(IMapper mapper, IAsyncRepository<Competitor> competitorRepository )
+        public CreateCompetitorCommandHandler(IMapper mapper, ICompetitorRepository competitorRepository )
         {
             _mapper = mapper;
             _competitorRepository = competitorRepository;
@@ -31,7 +27,7 @@ namespace BetStackApp.Application.Features.Competitors.Commands.CreateCompetitor
         {
             var createCompetitorCommandResponse = new CreateCompetitorCommandResponse();
 
-            var validator = new CreateCompetitorCommandValidator();
+            var validator = new CreateCompetitorCommandValidator(_competitorRepository);
             var valResult = await validator.ValidateAsync(request);
 
             if (valResult.Errors.Count > 0)
@@ -45,10 +41,10 @@ namespace BetStackApp.Application.Features.Competitors.Commands.CreateCompetitor
             }
             if (createCompetitorCommandResponse.Success)
             {
-                var competitor = new Competitor() { Name = request.Name, Nationality = request.Nationality, Notes = request.Notes };
+                var competitor = new Competitor() { Name = request.Name, HomeBase = request.HomeBase, Description = request.Description };
                 competitor = await _competitorRepository.AddAsync(competitor);
 
-                createCompetitorCommandResponse.Competitor = _mapper.Map<CreateCompetitorDto>(competitor);
+                createCompetitorCommandResponse.NewCompetitor = _mapper.Map<CreateCompetitorDto>(competitor);
             }
 
             return createCompetitorCommandResponse;

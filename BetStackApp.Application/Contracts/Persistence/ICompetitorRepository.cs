@@ -7,8 +7,8 @@ using BetStackApp.Domain.Entities;
 
 namespace BetStackApp.Application.Contracts.Persistence
 {
-    public interface ICompetitorRepository : IAsyncRepository<Competitor>
+    public interface ICompetitorRepository: IAsyncRepository<Competitor>
     {
-        
+        Task<bool> AreCompetitorNameAndHomeBaseUnique(string name, string homeBase);
     }
 }

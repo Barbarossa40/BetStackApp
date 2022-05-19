@@ -7,7 +7,7 @@ using MediatR;
 
 namespace BetStackApp.Application.Features.Competitors.Queries.GetCompetitorDetail
 {
-    public class GetCompetitorDetailsQuery : IRequest<CompetitorDetailsVM>
+    public class GetCompetitorDetailsQuery : IRequest<CompetitorDetailVm>
     {
         public Guid CompetitorId { get; set; }
     }

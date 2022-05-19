@@ -15,6 +15,6 @@ namespace BetStackApp.Application.Features.Competitors.Commands.CreateCompetitor
 
         }
 
-        public CreateCompetitorDto Competitor { get; set; } 
+        public CreateCompetitorDto NewCompetitor { get; set; } 
     }
 }

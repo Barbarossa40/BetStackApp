@@ -21,12 +21,7 @@
   <ItemGroup>
     <Folder Include="Features\Competitors\Commands\DeleteCompetitor\" />
     <Folder Include="Features\Competitors\Commands\UpdateCompetitor\" />
-    <Folder Include="Features\Leagues\Commands\CreateLeague\" />
-    <Folder Include="Features\Leagues\Commands\DeleteLeague\" />
-    <Folder Include="Features\Leagues\Commands\UpdateLeague\" />
-    <Folder Include="Features\Sports\Commands\CreateSport\" />
-    <Folder Include="Features\Sports\Commands\DeleteSport\" />
-    <Folder Include="Features\Sports\Commands\UpdateSport\" />
+    <Folder Include="Features\Matches\Queries\" />
   </ItemGroup>
 
 </Project>

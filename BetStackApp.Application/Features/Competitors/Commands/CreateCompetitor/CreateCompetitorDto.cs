@@ -10,5 +10,9 @@ namespace BetStackApp.Application.Features.Competitors.Commands.CreateCompetitor
     {
         public Guid CompetitorId { get; set; }
         public string Name { get; set; }
+
+        public string HomeBase { get; set; }
+
+        public string Description { get; set; }
     }
 }

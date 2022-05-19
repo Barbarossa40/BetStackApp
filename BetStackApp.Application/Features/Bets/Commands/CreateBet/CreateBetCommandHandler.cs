@@ -17,36 +17,29 @@ namespace BetStackApp.Application.Features.Bets.Commands.CreateBet
     {
         private readonly IBetRepository _betRepository;
         private readonly IMapper _mapper;
-        private readonly ISportRepository _sportRepository;
-        private readonly ILeagueRepository _leagueRepository;
+     
 
-        public CreateBetCommandHandler(IMapper mapper, IBetRepository betRepository, ISportRepository sportRepository, ILeagueRepository leagueRepository)
+        public CreateBetCommandHandler(IMapper mapper, IBetRepository betRepository)
         {
             _mapper = mapper;
             _betRepository = betRepository;
-            _sportRepository = sportRepository;
-            
         }
         public async Task<Guid> Handle(CreateBetCommand request, CancellationToken cancellationToken)
         {
-            var validator = new CreateBetCommandValidator();
-            var valResult = await validator.ValidateAsync(request);
+            var validator = new CreateBetCommandValidator(_betRepository);
 
-            if (valResult.Errors.Count > 0)
-            {
-                throw new Exceptions.ValidationException(valResult);
-            }
+            var validationResult = await validator.ValidateAsync(request);
 
+            if (validationResult.Errors.Count > 0)
+                throw new Exceptions.ValidationException(validationResult);
 
-          var bet = _mapper.Map<Bet>(request);
-          bet.Sport = await _sportRepository.GetByIdAsync(bet.SportId);
-          bet.League = await _leagueRepository.GetByIdAsync(bet.LeagueId);
-          
-          // need to figure out how to take in competitors from the form submitt
+            var bet = _mapper.Map<Bet>(request);
 
-          //save async needed here
+            bet = await _betRepository.AddAsync(bet);
+
             return bet.BetId;
-            // instead of reuting ID you can create a class that returns a reponse
+  
+
         }
     }
 }

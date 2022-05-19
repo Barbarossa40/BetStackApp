@@ -7,10 +7,21 @@ using BetStackApp.Domain.Common;
 
 namespace BetStackApp.Domain.Entities
 {
-    public class Parlay
+    public class Parlay : AuditableEntity
     {
         public Guid ParlayId { get; set; }
 
-        public ICollection<Bet> ParlayMember { get; set; }
+        public DateOnly DateOfCompletion { get; set; }
+
+        public DateOnly DatePlaced { get; set; }
+        public double AmountWagered { get; set; }
+
+        public bool WinParlay { get; set; }
+
+        public double NetReturn { get; set; }
+
+        public double ParlayOdds { get; set; }
+
+        public ICollection<Bet> ParlayBets { get; set; }
     }
 }

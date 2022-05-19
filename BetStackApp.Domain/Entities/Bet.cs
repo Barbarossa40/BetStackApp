@@ -1,43 +1,67 @@
-﻿using System;
+﻿using BetStackApp.Domain.Common;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using BetStackApp.Domain.Common;
 
 namespace BetStackApp.Domain.Entities
 {
-    public class Bet: AuditableEntity
+    public class Bet : AuditableEntity
     {
+
+        public Bet(Guid betId, Match matchBetOn, double odds, bool winBet, Competitor betOn, Competitor betAgainst, bool isParlayLeg, bool isComplete)
+        {
+            BetId = betId;
+            MatchBetOn = matchBetOn;
+            Odds = odds;
+            WinBet = winBet;
+            BetOn = betOn;
+            BetAgainst = betAgainst;
+            IsParlayLeg = isParlayLeg;
+            IsComplete = isComplete;
+
+        }
+        public Bet(Guid betId, Match matchBetOn, double odds, bool winBet, Competitor betOn, Competitor betAgainst, double wagerAmount, double netReturn, bool isParlayLeg, DateOnly datePlaced, bool isComplete)
+        {
+            BetId = betId;
+            MatchBetOn = matchBetOn;
+            Odds = odds;
+            WinBet = winBet;
+            BetOn = betOn;
+            BetAgainst = betAgainst;
+            WagerAmount = wagerAmount;
+            NetReturn = netReturn;
+            IsParlayLeg = isParlayLeg;
+            DatePlaced = datePlaced;
+            IsComplete = isComplete;
+        }
+
         public Guid BetId { get; set; }
-        public Guid UserId { get; set; }
 
-        public Guid SportId { get; set; }
-        public Sport? Sport { get; set; }
+        public Match MatchBetOn { get; set; }
 
-        public Guid LeagueId { get; set; }
-        public League? League { get; set; }
+        public double Odds { get; set; }
 
-        public DateTime DatePlaced { get; set; }
+        public bool WinBet { get; set; }
 
-        public string? BetEventName { get; set; }
+        public Competitor BetOn { get; set; }
 
-        public DateTime DateOfBetCompletion { get; set; }
+        public Competitor BetAgainst { get; set; }
+        public bool IsComplete { get; set; }
 
-        public int Odds { get; set; }
+        public bool IsParlayLeg { get; set; }
+
+        //parlay bets dont need
+
 
         public double WagerAmount { get; set; }
-        public double Payout { get; set; }
 
-        public bool WonBet { get; set; }
+        public double NetReturn { get; set; }
 
-        public bool EarlyCashOut { get; set; }
+        public DateOnly DatePlaced { get; set; }
 
-        public double EarlyCashoutAmount { get; set; }
 
-        public bool ParlayMember { get; set; }
 
-        public ICollection<BetCompetitor>? BetCompetitors { get; set; }
-       
     }
-}
+} 

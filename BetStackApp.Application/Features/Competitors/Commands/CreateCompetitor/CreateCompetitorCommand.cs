@@ -11,8 +11,9 @@ namespace BetStackApp.Application.Features.Competitors.Commands.CreateCompetitor
     {
         public string Name { get; set; }
 
-        public string Nationality { get; set; }
+        public string HomeBase { get; set; }
 
-        public string Notes { get; set; }
+        public string Description { get; set; }
+
     }
 }

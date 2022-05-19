@@ -7,7 +7,7 @@ using MediatR;
 
 namespace BetStackApp.Application.Features.Bets.Queries.GetBetDetail
 {
-    public class GetBetDetailQuery: IRequest<BetDetailVM>
+    public class GetBetDetailQuery: IRequest<BetDetailVm>
     {
         public Guid BetId { get; set; }
 
