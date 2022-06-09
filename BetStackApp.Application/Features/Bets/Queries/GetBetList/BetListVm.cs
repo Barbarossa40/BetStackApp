@@ -13,7 +13,7 @@ namespace BetStackApp.Application.Features.Bets.Queries.GetBetList
 
         public string MatchEventName { get; set; }
 
-        public DateOnly DatePlaced { get; set; }
+        public DateTime DatePlaced { get; set; }
 
         public bool IsComplete { get; set; }
 

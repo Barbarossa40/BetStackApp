@@ -11,9 +11,9 @@ namespace BetStackApp.Application.Features.Parlays.Queries.GetParlayDetail
 
         public Guid ParlayId { get; set; }
 
-        public DateOnly DateOfCompletion { get; set; }
+        public DateTime DateOfCompletion { get; set; }
 
-        public DateOnly DatePlaced { get; set; }
+        public DateTime DatePlaced { get; set; }
         public double AmountWagered { get; set; }
 
         public bool WinParlay { get; set; }

@@ -12,7 +12,7 @@ namespace BetStackApp.Application.Features.Parlays.Queries.GetParlayDetail
         public Guid BetId { get; set; }
 
         public MatchDto MatchBetOn { get; set; }
-        public DateOnly DatePlaced { get; set; }
+        public DateTime DatePlaced { get; set; }
 
         public double Odds { get; set; }
 

@@ -13,9 +13,9 @@ namespace BetStackApp.Persistence
 {
     public static class PersistenceServiceRegistration
     {
-        public static IServiceCollection AddPersistenceServices(this IServiceCollection services, IConfiguration configuration)
+        public static IServiceCollection AddPersistenceServices(this IServiceCollection services, IConfigurationSection configurationSection)
         {
-            services.AddDbContext<BetStackAppDbContext>(options=> options.UseSqlServer(configuration.GetConnectionString("BetStackAppConnectionString")));
+            services.AddDbContext<BetStackAppDbContext>(options=> options.UseSqlServer(configurationSection.GetSection("BetStackAppConnectionString").Value));
 
             services.AddScoped(typeof(IAsyncRepository<>), typeof(BaseRepository<>));
 

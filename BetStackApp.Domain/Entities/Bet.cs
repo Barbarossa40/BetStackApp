@@ -9,7 +9,10 @@ namespace BetStackApp.Domain.Entities
 {
     public class Bet : AuditableEntity
     {
+        public Bet()
+        {
 
+        }
         public Bet(Guid betId, Match matchBetOn, double odds, bool winBet, Competitor betOn, Competitor betAgainst, bool isParlayLeg, bool isComplete)
         {
             BetId = betId;
@@ -22,7 +25,7 @@ namespace BetStackApp.Domain.Entities
             IsComplete = isComplete;
 
         }
-        public Bet(Guid betId, Match matchBetOn, double odds, bool winBet, Competitor betOn, Competitor betAgainst, double wagerAmount, double netReturn, bool isParlayLeg, DateOnly datePlaced, bool isComplete)
+        public Bet(Guid betId, Match matchBetOn, double odds, bool winBet, Competitor betOn, Competitor betAgainst, double wagerAmount, double netReturn, bool isParlayLeg, DateTime datePlaced, bool isComplete)
         {
             BetId = betId;
             MatchBetOn = matchBetOn;
@@ -39,15 +42,15 @@ namespace BetStackApp.Domain.Entities
 
         public Guid BetId { get; set; }
 
-        public Match MatchBetOn { get; set; }
+        public Match? MatchBetOn { get; set; }
 
         public double Odds { get; set; }
 
         public bool WinBet { get; set; }
 
-        public Competitor BetOn { get; set; }
+        public Competitor? BetOn { get; set; }
 
-        public Competitor BetAgainst { get; set; }
+        public Competitor? BetAgainst { get; set; }
         public bool IsComplete { get; set; }
 
         public bool IsParlayLeg { get; set; }
@@ -59,7 +62,7 @@ namespace BetStackApp.Domain.Entities
 
         public double NetReturn { get; set; }
 
-        public DateOnly DatePlaced { get; set; }
+        public DateTime DatePlaced { get; set; }
 
 
 
