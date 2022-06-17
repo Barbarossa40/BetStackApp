@@ -10,7 +10,7 @@ namespace BetStackApp.Application.Contracts.Persistence
     public interface IBetRepository: IAsyncRepository<Bet>
     {
 
-        Task<IReadOnlyList<Bet>> GetAllBets(bool includeParlayLegs);
+        Task<IReadOnlyList<Bet>> GetAllBets(bool IncludeParlayLegs);
 
 
         Task<List<Bet>> GetBetListById(ICollection<Guid> parlayBets);

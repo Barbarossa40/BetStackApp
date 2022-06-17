@@ -9,6 +9,6 @@ namespace BetStackApp.Application.Features.Bets.Queries.GetBetList
 {
     public class GetBetListQuery : IRequest<List<BetListVm>>
     {
-        public bool includeParlayLegs { get; set; }
+        public bool IncludeParlayLegs { get; set; }
     }
 }

@@ -8,5 +8,7 @@ namespace BetStackApp.Application.Features.Parlays.Commands.CreateParlay
 {
     public class CreateParlayCommandValidation
     {
+
+        //add validation once POC established
     }
 }

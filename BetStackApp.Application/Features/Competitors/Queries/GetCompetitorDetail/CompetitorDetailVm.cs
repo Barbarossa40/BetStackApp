@@ -16,6 +16,8 @@ namespace BetStackApp.Application.Features.Competitors.Queries.GetCompetitorDeta
 
         public string Description { get; set; }
 
+     
+
     }
 }
 

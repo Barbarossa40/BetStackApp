@@ -16,6 +16,7 @@ namespace BetStackApp.Persistence.Repos
 
         }
 
+  
         public Task<bool> AreCompetitorNameAndHomeBaseUnique(string name, string homeBase)
         {
             var duplicateCompetitor = _dbContext.Competitors.Any(c => c.Name == name && c.HomeBase == homeBase);

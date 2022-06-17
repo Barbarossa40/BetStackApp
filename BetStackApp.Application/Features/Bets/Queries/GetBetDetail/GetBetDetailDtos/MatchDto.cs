@@ -9,7 +9,7 @@ namespace BetStackApp.Application.Features.Bets.Queries.GetBetDetail.GetBetDetai
     public class MatchDto
     {
 
-        public int MatchId { get; set; }
+        public Guid MatchId { get; set; }
         public string MatchEventName { get; set; }
 
         public DateTime MatchDate { get; set; }

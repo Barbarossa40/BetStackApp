@@ -5,7 +5,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace BetStackApp.Persistence.Migrations
 {
-    public partial class first : Migration
+    public partial class bob : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -31,8 +31,7 @@ namespace BetStackApp.Persistence.Migrations
                 name: "Matches",
                 columns: table => new
                 {
-                    MatchId = table.Column<int>(type: "int", nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
+                    MatchId = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
                     MatchEventName = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     MatchDate = table.Column<DateTime>(type: "datetime2", nullable: false),
                     Sport = table.Column<string>(type: "nvarchar(max)", nullable: false),
@@ -73,7 +72,7 @@ namespace BetStackApp.Persistence.Migrations
                 columns: table => new
                 {
                     BetId = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
-                    MatchBetOnMatchId = table.Column<int>(type: "int", nullable: true),
+                    MatchBetOnMatchId = table.Column<Guid>(type: "uniqueidentifier", nullable: true),
                     Odds = table.Column<double>(type: "float", nullable: false),
                     WinBet = table.Column<bool>(type: "bit", nullable: false),
                     BetOnCompetitorId = table.Column<Guid>(type: "uniqueidentifier", nullable: true),
@@ -113,16 +112,6 @@ namespace BetStackApp.Persistence.Migrations
                         principalTable: "Parlays",
                         principalColumn: "ParlayId");
                 });
-
-            migrationBuilder.InsertData(
-                table: "Competitors",
-                columns: new[] { "CompetitorId", "CreatedBy", "CreatedDate", "Description", "HomeBase", "LastModifiedBy", "LastModifiedDate", "Name" },
-                values: new object[] { new Guid("6313179f-7837-473a-a4d5-a5571b43e6a6"), null, new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), "According to his mother he is, a very handsome man", "Lake Orion, MI USA", null, null, "Geoffrey" });
-
-            migrationBuilder.InsertData(
-                table: "Matches",
-                columns: new[] { "MatchId", "CreatedBy", "CreatedDate", "LastModifiedBy", "LastModifiedDate", "League", "MatchDate", "MatchEventName", "Sport" },
-                values: new object[] { 1, null, new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), null, null, "LOBO Fight Club", new DateTime(2022, 6, 9, 0, 33, 59, 852, DateTimeKind.Local).AddTicks(6149), "The Rumble From Down Under", "Mixed Martial Arts" });
 
             migrationBuilder.CreateIndex(
                 name: "IX_Bets_BetAgainstCompetitorId",

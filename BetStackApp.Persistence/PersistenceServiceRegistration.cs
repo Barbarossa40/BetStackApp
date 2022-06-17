@@ -23,6 +23,7 @@ namespace BetStackApp.Persistence
             services.AddScoped<IMatchRepository, MatchRepository>();
             services.AddScoped<IParlayRepository, ParlayRepository>();
             services.AddScoped<ICompetitorRepository, CompetitorRespository>();
+            //services.AddTransient<DataSeeder>();
 
             return services;
         }

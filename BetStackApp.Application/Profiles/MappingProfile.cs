@@ -16,6 +16,7 @@ using BetStackApp.Application.Features.Bets.Commands.CreateBet;
 using BetStackApp.Application.Features.Competitors.Commands.CreateCompetitor;
 using BetStackApp.Application.Features.Matches.Commands;
 using BetStackApp.Application.Features.Parlays.Commands.CreateParlay;
+using BetStackApp.Application.Features.Matches.Queries.GetMatchDetail;
 
 namespace BetStackApp.Application.Profiles
 {
@@ -44,6 +45,8 @@ namespace BetStackApp.Application.Profiles
             CreateMap<Competitor,CompetitorDetailVm>().ReverseMap();
 
 
+
+
             //parlay
             CreateMap<Parlay,ParlayListVm>()
                 .ForMember(bc=>bc.BetOnCompetitors, opt=>opt.MapFrom(pb=>pb.ParlayBets.Select(c=>c.BetOn.Name))).ReverseMap();
@@ -66,7 +69,7 @@ namespace BetStackApp.Application.Profiles
 
             //create Match
             CreateMap<Match, CreateMatchDto>().ReverseMap();
-
+            CreateMap<Match, GetMatchDetailVm>().ReverseMap();
 
             //create Parlay
             CreateMap<CreateParlayCommand, Parlay>()

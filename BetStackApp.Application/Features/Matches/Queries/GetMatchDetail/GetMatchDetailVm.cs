@@ -3,13 +3,12 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using BetStackApp.Domain.Common;
 
-
-namespace BetStackApp.Domain.Entities
+namespace BetStackApp.Application.Features.Matches.Queries.GetMatchDetail
 {
-    public class Match : AuditableEntity
+    public class GetMatchDetailVm
     {
+
         public Guid MatchId { get; set; }
         public string MatchEventName { get; set; }
 
@@ -18,11 +17,5 @@ namespace BetStackApp.Domain.Entities
         public string Sport { get; set; }
 
         public string League { get; set; }
-
-        //add later once basic functions are operational
-        //public List<Competitor> MatchCompetitors { get; set; }
-
-        //public Competitor Winner { get; set; }
-
     }
 }

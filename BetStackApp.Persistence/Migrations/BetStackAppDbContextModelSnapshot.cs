@@ -55,8 +55,8 @@ namespace BetStackApp.Persistence.Migrations
                     b.Property<DateTime?>("LastModifiedDate")
                         .HasColumnType("datetime2");
 
-                    b.Property<int?>("MatchBetOnMatchId")
-                        .HasColumnType("int");
+                    b.Property<Guid?>("MatchBetOnMatchId")
+                        .HasColumnType("uniqueidentifier");
 
                     b.Property<double>("NetReturn")
                         .HasColumnType("float");
@@ -119,25 +119,13 @@ namespace BetStackApp.Persistence.Migrations
                     b.HasKey("CompetitorId");
 
                     b.ToTable("Competitors");
-
-                    b.HasData(
-                        new
-                        {
-                            CompetitorId = new Guid("6313179f-7837-473a-a4d5-a5571b43e6a6"),
-                            CreatedDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            Description = "According to his mother he is, a very handsome man",
-                            HomeBase = "Lake Orion, MI USA",
-                            Name = "Geoffrey"
-                        });
                 });
 
             modelBuilder.Entity("BetStackApp.Domain.Entities.Match", b =>
                 {
-                    b.Property<int>("MatchId")
+                    b.Property<Guid>("MatchId")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("MatchId"), 1L, 1);
+                        .HasColumnType("uniqueidentifier");
 
                     b.Property<string>("CreatedBy")
                         .HasColumnType("nvarchar(max)");
@@ -169,17 +157,6 @@ namespace BetStackApp.Persistence.Migrations
                     b.HasKey("MatchId");
 
                     b.ToTable("Matches");
-
-                    b.HasData(
-                        new
-                        {
-                            MatchId = 1,
-                            CreatedDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            League = "LOBO Fight Club",
-                            MatchDate = new DateTime(2022, 6, 9, 0, 45, 8, 553, DateTimeKind.Local).AddTicks(5281),
-                            MatchEventName = "The Rumble From Down Under",
-                            Sport = "Mixed Martial Arts"
-                        });
                 });
 
             modelBuilder.Entity("BetStackApp.Domain.Entities.Parlay", b =>

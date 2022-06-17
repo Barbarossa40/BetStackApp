@@ -44,17 +44,16 @@ if (app.Environment.IsDevelopment())
     app.UseSwagger();
     app.UseSwaggerUI();
 }
-app.UseRouting();
+
 
 app.UseHttpsRedirection();
-
+app.UseRouting();
 app.UseAuthorization();
 
 app.UseCors("Open");
 
-app.MapControllers();
-//app.UseEndpoints(endpoints =>  --Not sure if I will need this or not. I think it depends on if I make this MVC/Blazor or if Angular
-//{
-//    endpoints.MapControllers();
-//});
+app.UseEndpoints(endpoints =>
+{
+    endpoints.MapControllers();
+});
 app.Run();

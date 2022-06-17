@@ -7,6 +7,15 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="Features\Competitors\Commands\DeleteCompetitor\**" />
+    <Compile Remove="Features\Competitors\Commands\UpdateCompetitor\**" />
+    <EmbeddedResource Remove="Features\Competitors\Commands\DeleteCompetitor\**" />
+    <EmbeddedResource Remove="Features\Competitors\Commands\UpdateCompetitor\**" />
+    <None Remove="Features\Competitors\Commands\DeleteCompetitor\**" />
+    <None Remove="Features\Competitors\Commands\UpdateCompetitor\**" />
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="AutoMapper" Version="11.0.1" />
     <PackageReference Include="AutoMapper.Extensions.Microsoft.DependencyInjection" Version="11.0.0" />
     <PackageReference Include="FluentValidation" Version="11.0.2" />
@@ -19,9 +28,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Features\Competitors\Commands\DeleteCompetitor\" />
-    <Folder Include="Features\Competitors\Commands\UpdateCompetitor\" />
-    <Folder Include="Features\Matches\Queries\" />
+    <Folder Include="Features\Matches\Queries\GetMatchList\" />
   </ItemGroup>
 
 </Project>

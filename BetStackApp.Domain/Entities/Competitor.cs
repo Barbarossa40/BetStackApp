@@ -16,5 +16,7 @@ namespace BetStackApp.Domain.Entities
 
         public string Description { get; set; }
 
+    
+
     }
 }

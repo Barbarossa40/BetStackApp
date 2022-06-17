@@ -23,7 +23,7 @@ namespace BetStackApp.Application.Features.Bets.Queries.GetBetList
         }
         public async Task<List<BetListVm>> Handle(GetBetListQuery request, CancellationToken cancellationToken)
         {
-            var allBets = (await _betRepository.GetAllBets(request.includeParlayLegs)).OrderByDescending(x => x.DatePlaced); 
+            var allBets = (await _betRepository.GetAllBets(request.IncludeParlayLegs)).OrderByDescending(x => x.DatePlaced); 
             return _mapper.Map<List<BetListVm>>(allBets);
 
 
